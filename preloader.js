@@ -24,26 +24,25 @@ lottieContainer.style.cssText = `
     left: 50%;
     transform: translate(-50%, -50%);
 `;
-lottieContainer.style.display = 'none';
 
 document.body.appendChild(overlay);
 document.body.appendChild(lottieContainer);
 
 function hideOverlay() {
-    overlay.style.display = 'none';
-    lottieContainer.style.display = 'block';
-    // Substitua pela URL direta do seu arquivo JSON do Lottie.
+    overlay.style.display = 'none'; // Скрыть overlay после загрузки
+    lottieContainer.style.display = 'block'; // Показать контейнер для Lottie
+
+    // Инициализация Lottie анимации
     lottie.loadAnimation({
-        container: lottieContainer,
-        renderer: 'svg', // ou 'canvas' se preferir
-        loop: true,
-        autoplay: true,
-        path: 'https://jedijnp.github.io/preloaderJSLottie/ladyanddog.json',
+        container: lottieContainer, // Элемент для рендеринга анимации
+        renderer: 'svg', // Тип рендерера, используем 'svg'
+        loop: true, // Анимация будет цикличной
+        autoplay: true, // Анимация начнет автоматически
+        path: 'https://jedijnp.github.io/preloaderJSLottie/ladyanddog.json', // URL файла Lottie JSON
     });
 }
 
+// Запуск анимации после загрузки контента страницы
 document.addEventListener('DOMContentLoaded', () => {
-    hideOverlay(); // Teste sem o setTimeout
+    hideOverlay();
 });
-
-window.addEventListener('load', hideOverlay);
